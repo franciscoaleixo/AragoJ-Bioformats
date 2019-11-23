@@ -9,5 +9,8 @@ Currently it does not do any post-process work (e.g. RAW files that can be read 
 ## Release
 You can check the latest release [here](https://github.com/franciscoaleixo/AragoJ-Bioformats/releases).
 
+## How to install
+Simply put the .jar file in the 'plugins' folder where AragoJ is installed. If the 'plugins' folder does not exist, you can simply create it.
+
 ## License
 Because Bioformats uses GPL, which requires copyleft, this plugin also has the same GPL license. Support their amazing work [here](https://github.com/ome/bioformats).
