@@ -1,0 +1,34 @@
+plugins {
+    id 'java-library'
+}
+
+group 'com.aragoj.plugins'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://artifacts.openmicroscopy.org/artifactory/maven/'
+    }
+}
+
+configurations {
+    // configuration that holds jars to include in the jar
+    extraLibs
+}
+
+
+dependencies {
+    compile fileTree('./libs')
+    extraLibs(group: 'ome', name: 'formats-gpl', version: '6.2.1'){}
+    compile(group: 'ome', name: 'formats-gpl', version: '6.2.1'){}
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
